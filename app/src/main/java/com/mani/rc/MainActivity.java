@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -13,20 +14,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
   TextView holder,holderOne,holderTwo;
   CountDownTimer countDownTimer;
+
+  @BindView(R.id.recycler) RecyclerView recyclerView;
+  RecyclerViewAdapter recyclerViewAdapter;
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+    ButterKnife.bind(this);
 
     holder = (TextView) findViewById(R.id.timestamp);
     holderOne = (TextView) findViewById(R.id.timestamp_one);
     holderTwo = (TextView) findViewById(R.id.timestamp_two);
 
-
+    recyclerViewAdapter = new RecyclerViewAdapter(getApplicationContext(),null,null);
+      recyclerView.setAdapter(recyclerViewAdapter);
 
     countDownTimer = new CustomTimer(10000, 500);
     final CustomRunnable customRunnable = new CustomRunnable();
@@ -65,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
     //countDownTimer.cancel();
     handler.removeCallbacksAndMessages(null);
     holder = null;
+    recyclerViewAdapter.clearAll();
   }
 
 
