@@ -16,17 +16,22 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-  TextView holder;
+  TextView holder,holderOne,holderTwo;
   CountDownTimer countDownTimer;
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
     holder = (TextView) findViewById(R.id.timestamp);
+    holderOne = (TextView) findViewById(R.id.timestamp_one);
+    holderTwo = (TextView) findViewById(R.id.timestamp_two);
+
 
 
     countDownTimer = new CustomTimer(10000, 500);
     final CustomRunnable customRunnable = new CustomRunnable();
+    final CustomRunnable customRunnableOne = new CustomRunnable();
+    final CustomRunnable customRunnableTwo = new CustomRunnable();
 
     FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
@@ -36,8 +41,21 @@ public class MainActivity extends AppCompatActivity {
         //countDownTimer.start();
 
         handler.removeCallbacks(customRunnable);
+        customRunnable.holder = holder;
         customRunnable.millisUntilFinished = 4000; //Current time - received time
         handler.postDelayed(customRunnable, 100);
+
+
+        handler.removeCallbacks(customRunnableOne);
+        customRunnableOne.holder = holderOne;
+        customRunnableOne.millisUntilFinished = 50000; //Current time - received time
+        handler.postDelayed(customRunnableOne, 100);
+
+
+        handler.removeCallbacks(customRunnableTwo);
+        customRunnableTwo.holder = holderTwo;
+        customRunnableTwo.millisUntilFinished = 99000; //Current time - received time
+        handler.postDelayed(customRunnableTwo, 100);
       }
     });
   }
@@ -55,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
   public class CustomRunnable implements Runnable {
 
     public long millisUntilFinished = 40000;
+    public TextView holder;
 
     @Override
     public void run() {
@@ -74,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
       handler.postDelayed(this, 1000);
     }
 
-  };
+  }
 
   public class CustomTimer extends CountDownTimer{
 
