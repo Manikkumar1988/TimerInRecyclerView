@@ -45,7 +45,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public ViewHolder(View itemView) {
       super(itemView);
       ButterKnife.bind(this, itemView);
-      customRunnable = new CustomRunnable();
+      customRunnable = new CustomRunnable(handler,timeStamp,4000);
     }
 
     public void bind(final CustomTimer model, final OnItemClickListener listener) {
@@ -63,30 +63,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
   }
 
-  public class CustomRunnable implements Runnable {
 
-    public long millisUntilFinished = 40000;
-    public TextView holder;
-
-    @Override
-    public void run() {
-      /* do what you need to do */
-      long seconds = millisUntilFinished / 1000;
-      long minutes = seconds / 60;
-      long hours = minutes / 60;
-      long days = hours / 24;
-      String time = days+" "+"days" +" :" +hours % 24 + ":" + minutes % 60 + ":" + seconds % 60;
-      holder.setText(time);
-
-      millisUntilFinished -= 1000;
-
-      Log.d("DEV123",time);
-
-      /* and here comes the "trick" */
-      handler.postDelayed(this, 1000);
-    }
-
-  }
 
 
   @Override public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

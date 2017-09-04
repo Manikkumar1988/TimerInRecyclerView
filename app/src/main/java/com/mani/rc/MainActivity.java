@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
 
   TextView holder,holderOne,holderTwo;
-  CountDownTimer countDownTimer;
+  //CountDownTimer countDownTimer;
 
   @BindView(R.id.recycler) RecyclerView recyclerView;
   RecyclerViewAdapter recyclerViewAdapter;
@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
     holderTwo = (TextView) findViewById(R.id.timestamp_two);
 
     recyclerViewAdapter = new RecyclerViewAdapter(getApplicationContext(),null,null);
-      recyclerView.setAdapter(recyclerViewAdapter);
+    recyclerView.setAdapter(recyclerViewAdapter);
 
-    countDownTimer = new CustomTimer(10000, 500);
+    /*countDownTimer = new CustomTimer(10000, 500);
     final CustomRunnable customRunnable = new CustomRunnable();
     final CustomRunnable customRunnableOne = new CustomRunnable();
     final CustomRunnable customRunnableTwo = new CustomRunnable();
@@ -65,19 +65,19 @@ public class MainActivity extends AppCompatActivity {
         customRunnableTwo.millisUntilFinished = 99000; //Current time - received time
         handler.postDelayed(customRunnableTwo, 100);
       }
-    });
+    });*/
   }
 
   @Override protected void onPause() {
     super.onPause();
     //countDownTimer.cancel();
-    handler.removeCallbacksAndMessages(null);
-    holder = null;
+    /*handler.removeCallbacksAndMessages(null);
+    holder = null;*/
     recyclerViewAdapter.clearAll();
   }
 
 
-  private Handler handler = new Handler();
+  /*private Handler handler = new Handler();
 
   public class CustomRunnable implements Runnable {
 
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void run() {
-      /* do what you need to do */
+      *//* do what you need to do *//*
       long seconds = millisUntilFinished / 1000;
       long minutes = seconds / 60;
       long hours = minutes / 60;
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
       Log.d("DEV123",time);
 
-      /* and here comes the "trick" */
+      *//* and here comes the "trick" *//*
       handler.postDelayed(this, 1000);
     }
 
@@ -125,5 +125,5 @@ public class MainActivity extends AppCompatActivity {
     public void onFinish() {
       holder.setText("Time up!");
     }
-  }
+  }*/
 }
