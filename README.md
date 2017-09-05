@@ -20,7 +20,7 @@ and
 <img src="art/device-2017-09-05-062727.png" alt="phone image" width="200px" />
 
 # App Performance
-<img src="art/Untitled.gif" alt="memory monitor" width="500px" />
+<img src="art/Untitled.gif" alt="memory monitor" width="700px" />
 
 
 # What does this app do?
