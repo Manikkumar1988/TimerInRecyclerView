@@ -19,9 +19,17 @@ and
 <img src="art/device-2017-09-05-062715.png" alt="phone image" width="200px" />
 <img src="art/device-2017-09-05-062727.png" alt="phone image" width="200px" />
 
+# App Performance
+<img src="art/untitled.gif" alt="memory monitor" width="200px" />
+
 
 # What does this app do?
 The aim of the project is to showcase how to handle multiple timer inside the recyclerview and how to clean up the resource.
 
 # How does app do?
 Instead of CountdownTimer/TimerTask app performs count down operation using Runnable and handler.
+
+# Reasoning
+Motivation of the application is to have individual timer for each row, however recycle the timer as same logic as view recycling,
+so that there won't be peak memory usage and leading to impact on performance. 
+
