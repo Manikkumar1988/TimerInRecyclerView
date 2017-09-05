@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
     setContentView(R.layout.activity_main);
     ButterKnife.bind(this);
 
-    holder = (TextView) findViewById(R.id.timestamp);
+  /*  holder = (TextView) findViewById(R.id.timestamp);
     holderOne = (TextView) findViewById(R.id.timestamp_one);
-    holderTwo = (TextView) findViewById(R.id.timestamp_two);
+    holderTwo = (TextView) findViewById(R.id.timestamp_two);*/
 
     recyclerViewAdapter = new RecyclerViewAdapter(getApplicationContext(),null,null);
     recyclerView.setAdapter(recyclerViewAdapter);

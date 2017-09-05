@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.BindView;
 import java.util.List;
@@ -40,12 +41,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
   public class ViewHolder extends RecyclerView.ViewHolder {
     // Todo Butterknife bindings
     @BindView(R.id.timestamp) TextView timeStamp;
+    @BindView(R.id.bck) ImageView imageView;
     CustomRunnable customRunnable;
 
     public ViewHolder(View itemView) {
       super(itemView);
       ButterKnife.bind(this, itemView);
-      customRunnable = new CustomRunnable(handler,timeStamp,4000);
+      customRunnable = new CustomRunnable(handler,timeStamp,10000,imageView);
     }
 
     public void bind(final CustomTimer model, final OnItemClickListener listener) {
@@ -57,7 +59,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
       handler.removeCallbacks(customRunnable);
       customRunnable.holder = timeStamp;
-      customRunnable.millisUntilFinished = 1000 * getAdapterPosition(); //Current time - received time
+      customRunnable.millisUntilFinished = 10000 * getAdapterPosition(); //Current time - received time
       handler.postDelayed(customRunnable, 100);
 
     }
