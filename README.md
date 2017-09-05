@@ -16,6 +16,8 @@ and
 
 
 # Screenshots
+<img src="art/device-2017-09-05-062715.png" alt="phone image" width="200px" />
+<img src="art/device-2017-09-05-062727.png" alt="phone image" width="200px" />
 
 
 # What does this app do?
