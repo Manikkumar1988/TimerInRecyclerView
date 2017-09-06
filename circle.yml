@@ -14,12 +14,6 @@ machine:
 
 
 dependencies:
-    pre:
-        - echo y | android update sdk --no-ui --all --filter tools,platform-tools,extra-google-m2repository,extra-google-google_play_services,extra-android-support,android-24,extra-android-m2repository
-        - echo y | android update sdk --no-ui --all --filter build-tools-24.0.0
-    cache_directories:
-        - /usr/local/android-sdk-linux/tools
-        - /usr/local/android-sdk-linux/build-tools/24.0.0
     override:
         - chmod +x ./gradlew
 
